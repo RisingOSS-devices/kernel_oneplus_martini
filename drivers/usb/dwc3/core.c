@@ -1728,6 +1728,7 @@ static int dwc3_probe(struct platform_device *pdev)
 	init_waitqueue_head(&dwc->wait_linkstate);
 	spin_lock_init(&dwc->lock);
 
+
 	pm_runtime_no_callbacks(dev);
 	pm_runtime_set_active(dev);
 	if (dwc->enable_bus_suspend) {
