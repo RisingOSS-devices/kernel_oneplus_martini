@@ -4952,10 +4952,12 @@ static ssize_t lra_cal_cl_t_lra_us_store(struct class *c,
 	chip->config.cl_t_lra_us = val;
 	pr_info("store cl_t_lra_us:%d\n", val);
 
-	rc = haptics_config_openloop_lra_period(chip, chip->config.cl_t_lra_us);
-	if (rc < 0){
-		dev_err(chip->dev, "%s:rc = %d\n", __func__, rc);
-		return rc;
+	if (val != 0){
+		rc = haptics_config_openloop_lra_period(chip, chip->config.cl_t_lra_us);
+		if (rc < 0){
+			dev_err(chip->dev, "%s:rc = %d\n", __func__, rc);
+			return rc;
+		}
 	}
 
 	return count;
