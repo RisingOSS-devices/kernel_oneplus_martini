@@ -51,6 +51,7 @@ int oplus_gauge_get_batt_mvolts(void)
 	}
 }
 
+
 int oplus_gauge_get_batt_ttf(void)
 {
 	if (!g_gauge_chip || !g_gauge_chip->gauge_ops
